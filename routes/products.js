@@ -1,19 +1,19 @@
 var express = require('express');
 var router = express.Router();
-var users = require('../controllers/user')
+var products = require('../controllers/product')
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  users.getAllUsers(req,res);
+  products.getAllProducts(req,res);
 });
 router.get('/:id', function(req, res, next) {
-  users.getSingleUser(req,res);
+  products.getSingleProduct(req,res);
 });
 router.delete('/', function(req, res, next) {
-  users.deleteAllUsers(req,res);
+  products.deleteAllproducts(req,res);
 });
 router.delete('/:id', function(req, res, next) {
-  users.deleteSingleUser(req,res);
+  products.deleteSingleProduct(req,res);
 });
 
 module.exports = router;
