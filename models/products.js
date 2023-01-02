@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     minimum_rent_period: DataTypes.INTEGER
   }, {
     sequelize,
+    timestamps: false,
     modelName: 'Products',
   });
   return Products;
