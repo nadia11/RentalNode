@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "SiriAlexi1",
-    "database": "rental",
-    "host": "127.0.0.1",
+    "username": "pqespzxg",
+    "password": "gvzMn702CZACeGotG3tYcMfilLJkBZrL",
+    "database": "pqespzxg",
+    "host": "tiny.db.elephantsql.com",
     "dialect": "postgres"
   },
   "test": {
