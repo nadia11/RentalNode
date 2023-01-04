@@ -1,29 +1,26 @@
-const User = require('../models').User
+const Users = require('../models').Users;
+var bodyParser = require('body-parser');
+
 
 module.exports = {
 
   // create account
   signUp: (req, res) => {
-    let { firstName, lastName, email} = req.body
-    User.create({
-      firstName,
-      lastName,
-      email
+    let {email,password} = req.body
+    Users.create({
+      email,
+      password
     }).then((user) => {
-      return res.status(201).json({
-        "message": "User created successfully",
-        user
-      }).catch(err => {
-        return res.status(400).json({err})
-      })
+      return res.status(201).json({user})
     })
+      .catch(error=>console.log(error))
   },
 
   updateSignUp: (req, res) => {
     let { firstName, lastName, email} = req.body
     let id = req.params.id
 
-    User.findOne({
+    Users.findOne({
       where: {id:id}
     }).then( user => {
       if (user){
@@ -51,11 +48,11 @@ module.exports = {
 
   getAllUsers: ( req, res ) => {
 
-    User.findAll( ).then(users => {
-      return res.status(200).json({
-        users
-      })
+    Users.findAll({})
+      .then(users => {
+      return res.status(200).json({users})
     }).catch(err => {
+      console.log(err);
       return res.status(400).json({err})
     })
   },
@@ -65,7 +62,7 @@ module.exports = {
   getSingleUser:(req, res) => {
     let id = req.params.id
 
-    User.findByPk(id)
+    Users.findByPk(id)
       .then((user) => {
         return res.status(200).json({user})
       }).catch(err => {
@@ -73,12 +70,14 @@ module.exports = {
     })
   },
 
+
+
 // delete user by id
 
   deleteSingleUser: (req, res) => {
     let id = req.params.id
 
-    User.destroy({
+    Users.destroy({
       where: {id: id}
     }).then(() =>{
       return res.status(200).json({
@@ -93,7 +92,7 @@ module.exports = {
 // delete all users
 
   deleteAllUsers: (req, res) => {
-    User.destroy({
+    Users.destroy({
       truncate: true
     }).then(() => {
       return res.status(200).json({

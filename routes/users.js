@@ -15,5 +15,8 @@ router.delete('/', function(req, res, next) {
 router.delete('/:id', function(req, res, next) {
   users.deleteSingleUser(req,res);
 });
+router.post('/', function(req, res, next) {
+  users.signUp(req,res);
+});
 
 module.exports = router;
