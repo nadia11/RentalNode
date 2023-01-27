@@ -1,9 +1,16 @@
-var express = require('express');
+const express=require("express");
+const {getAllUsers, signup, login, Logout }= require("../controllers/user.js");
+const { verifyToken }=require("../middleware/VerifyToken.js") ;
+const { refreshToken } =require("../controllers/RefreshToken.js") ;
+const user = require('../routes/users')
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
 
-module.exports = router;
+
+//router.get('/users', verifyToken, getAllUsers);
+// router.post('/users', signup);
+// router.post('/login', login);
+// router.get('/token', refreshToken);
+// router.delete('/logout', Logout);
+
+module.export= router;

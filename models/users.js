@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   Users.init({
     id: {type:DataTypes.INTEGER,primaryKey: true, autoIncrement:true},
     email: DataTypes.STRING,
-    password: DataTypes.STRING
+    password: DataTypes.STRING,
+    refresh_token: {type:DataTypes.TEXT, nullable:true},
   }, {
     sequelize,
     timestamps: false,
