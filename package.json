@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon bin/www",
+    "start": "node bin/www",
+    "dev": "npm run start",
+    "build": "npm run build",
     "watch": "nodemon"
   },
   "dependencies": {
